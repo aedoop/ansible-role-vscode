@@ -1,2 +1,10 @@
 ---
 # tasks file for vscode
+
+- name: Set dir_info,pkg_info fact in {{ ansible_distribution }} by {{ vscode_install_type }} install
+  set_fact:
+    dir_info: "{{ vscode_dirs[ansible_os_family] }}"
+    pkg_info: "{{ vscode_packages[vscode_version][ansible_os_family] }}"
+
+- name: Include Windows-{{ vscode_install_type }}.yml in {{ ansible_distribution }} by {{ vscode_install_type }} install
+  include: Window-{{ vscode_install_type }}.yml

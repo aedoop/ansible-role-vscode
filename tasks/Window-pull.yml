@@ -1,0 +1,15 @@
+---
+
+- name: Check and create temp directory in {{ ansible_distribution }} by pull install
+  win_file: path={{ item }} state=directory
+  with_items:
+    - "{{ dir_info.tmp }}"
+
+- name: Download {{ package_name }} install package in {{ ansible_distribution }} by pull install
+  win_get_url: url={{ pkg_info.pull }} dest={{ dir_info.tmp }}//{{ pkg_info.file }}
+
+- name: Install {{ package_name }} in {{ ansible_distribution }} by pull install
+  win_chocolatey: name={{ package_name }}.install source={{ dir_info.tmp }} state=present
+
+- name: Remove {{ package_name }} install package in {{ ansible_distribution }} by pull install
+  win_file: path={{ dir_info.tmp }}//{{ pkg_info.file }} state=absent

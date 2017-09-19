@@ -1,2 +1,7 @@
 ---
 # defaults file for vscode
+
+package_name: vscode
+
+vscode_version: 1.16.0
+vscode_install_type: pull

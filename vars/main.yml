@@ -1,2 +1,12 @@
 ---
 # vars file for vscode
+
+vscode_dirs:
+  Windows:
+    tmp: C:\tmp
+
+vscode_packages:
+  1.16.0:
+    Windows:
+      file: vscode.install.1.16.0.nupkg
+      pull: ftp://10.0.250.100/pub/vscode/window/vscode.install.1.16.0.nupkg
